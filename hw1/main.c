@@ -44,6 +44,12 @@ bool isValidMenuOption(char c)
     }
 }
 
+void flushStdin(){
+    int c;
+
+    while ((c = getchar()) != '\n' && c != EOF);
+}
+
 char printMenu()
 {
     char line[4];
@@ -55,7 +61,8 @@ char printMenu()
         line[0] = tolower(line[0]);
         return line[0];
     }
-
+    
+    flushStdin();
     return response;
 }
 
@@ -70,6 +77,7 @@ void changeBorderCharacter()
     {
         printf("Sorry, I was not able to read your character.");
     }
+    flushStdin();
 }
 
 void changeBorderWidth()
@@ -78,8 +86,7 @@ void changeBorderWidth()
 
     printf("\nPlease enter a width --> ");
     int result = scanf("%d", &newWidth);
-
-    getchar(); //Remove remaining newline
+    flushStdin();
 
     if(result == EOF)
     {
