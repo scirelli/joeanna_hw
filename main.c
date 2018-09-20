@@ -94,7 +94,7 @@ void printRectangle(char borderCharacter, char fillCharacter, unsigned int width
 {
     if(width == 0 || height == 0)
     {
-        printf("Width and height must be greater than zero.");
+        printf("Width and height must be greater than zero.\n\n");
         return;
     }
 
