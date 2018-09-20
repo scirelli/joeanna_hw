@@ -1,7 +1,7 @@
 a.out: main.c
 	gcc main.c
 
-clear:
+clean:
 	rm a.out
 
 run: a.out

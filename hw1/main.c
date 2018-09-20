@@ -5,11 +5,11 @@
 
 #define WELCOME "\t\tWelcome to my Program!\n\n"
 #define MENU "Menu Options:\n"\
-             "\tc) Change square's border character. (currently: '%c')\n"\
-             "\tn) Change square's width. (currently: '%d')\n"\
-             "\t1) Print a square type 1.\n"\
-             "\t2) Print a square type 2.\n"\
-             "\tq) Quit.\n"\
+             "\t%c) Change square's border character. (currently: '%c')\n"\
+             "\t%c) Change square's width. (currently: '%d')\n"\
+             "\t%c) Print a square type 1.\n"\
+             "\t%c) Print a square type 2.\n"\
+             "\t%c) Quit.\n"\
              "--> "
 #define BAD_MENU_OPTION "\n\nNOT A VALID OPTION\n\n"
 #define SALUTATION "Good bye.\n"
@@ -55,7 +55,7 @@ char printMenu()
     char line[4];
     char response = INVALID;
 
-    printf(MENU, borderCharacter, width);
+    printf(MENU, MENU_OPTION_BORDER_CHAR, borderCharacter, MENU_OPTION_WIDTH, width, MENU_OPTION_PRINT_TYPE_1, MENU_OPTION_PRINT_TYPE_2, MENU_OPTION_QUIT);
     if(fgets(line, sizeof line, stdin) != NULL)
     {
         line[0] = tolower(line[0]);
@@ -68,7 +68,7 @@ char printMenu()
 
 void changeBorderCharacter()
 {
-    char line[4];
+    char line[2];
     printf("\nPlease enter a new border character --> ");
     if(fgets(line, sizeof line, stdin) != NULL)
     {
