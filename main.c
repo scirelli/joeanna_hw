@@ -83,7 +83,7 @@ void changeBorderWidth()
 
     if(result == EOF)
     {
-        printf("Sorry, I was not able to read your character.");
+        printf("Sorry, I was not able to read the width.");
     } else {
         width = (unsigned int)newWidth;
     }
